@@ -54,15 +54,15 @@ void MyServer::processTextMessage(QString message)
     qDebug() << "Command recieved from client" << message;
     if (message == "Object Detection")
     {
-        system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c pipeline_yolo.txt &");
+        system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c RTSP_stream_infer.txt &");
     }
     else if (message == "Object Tracking")
     {
-        system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c pipeline_yolo_tracker.txt &");
+        system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c RTSP_stream_infer_tracker.txt &");
     }
     else if (message == "Run pipeline")
     {
-    system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c deepstream_app_config_yoloV3.txt &");
+    system("cd /opt/nvidia/deepstream/deepstream-4.0/sources/objectDetector_Yolo && deepstream-app -c RTSP_stream.txt &");
     }
     else if (message == "Stop")
     {
